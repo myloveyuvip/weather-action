@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '58 5 * * *'
+    - cron: '0/5 * * * *'
 
 jobs:
   bot:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
-      - name: 'Get Weather'
+      - name: 'Sign in'
         run: bash ./weather.sh
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
